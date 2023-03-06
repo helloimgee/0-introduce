@@ -43,6 +43,17 @@ const GlobalStyle = createGlobalStyle`
   .point {
     color: #E54343;
   }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
 
   // font
   .archivo {

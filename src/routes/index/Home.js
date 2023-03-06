@@ -44,6 +44,21 @@ const StyledHome = styled.div`
   width: 100%;
   height: 100vh;
   .home {
+    &-txt {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      p {
+        .archivo {
+          font-size: 5rem;
+          color: #fff;
+        }
+        .moan {
+          font-size: 3rem;
+        }
+      }
+    }
     &-video {
       &-mobile {
         display: block;
@@ -65,13 +80,15 @@ const StyledHome = styled.div`
         transform: translate(-50%, -50%);
         p {
           text-align: center;
-        }
-        span {
-          color: #fff;
-          font-size: 5rem;
-        }
-        .moan {
-          color: #222;
+          word-break: keep-all;
+          .archivo {
+            font-size: 5rem;
+            color: #fff;
+          }
+          .moan {
+            color: #222;
+            font-size: 5rem;
+          }
         }
       }
       &-video {

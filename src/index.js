@@ -6,6 +6,7 @@ import ErrorPage from "./ErrorPage";
 import Home from "./routes/index/Home";
 import GlobalStyle from "./styles/GlobalStyle";
 import About from "./routes/about/About";
+import Projects from "./routes/projects/Projects";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -23,6 +24,11 @@ const router = createHashRouter([
       {
         path: "/about",
         element: <About />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/projects",
+        element: <Projects />,
         errorElement: <ErrorPage />,
       },
     ],

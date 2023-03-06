@@ -1,0 +1,31 @@
+<svg preserveAspectRatio="xMidYMid meet" data-bbox="11 0 218 60" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 229 71" height="71" width="229" data-type="ugc" role="presentation" aria-hidden="true">
+    <g>
+        <defs>
+            <path id="svgcid-mw4gk4-5fchuo" d="M218 30c0 16.569-13.431 30-30 30H30C13.431 60 0 46.569 0 30 0 13.431 13.431 0 30 0h158c16.569 0 30 13.431 30 30z"></path>
+            <filter id="svgcid-l5ciw4m0yuxe" filterUnits="objectBoundingBox" height="136.7%" width="110.1%" y="-9.2%" x="-7.6%">
+                <feOffset result="shadowOffsetOuter1" in="SourceAlpha" dy="10" dx="-10"></feOffset>
+                <feMorphology result="shadowInner" in="SourceAlpha" radius="4"></feMorphology>
+                <feOffset result="shadowInner" in="shadowInner" dy="10" dx="-10"></feOffset>
+                <feComposite result="shadowOffsetOuter1" operator="out" in2="shadowInner" in="shadowOffsetOuter1"></feComposite>
+                <feGaussianBlur result="shadowBlurOuter1" in="shadowOffsetOuter1" stdDeviation=".5"></feGaussianBlur>
+                <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.666666667 0 0 0 0 0.666666667 0 0 0 0 0.678431373 0 0 0 0.5 0"></feColorMatrix>
+            </filter>
+            <path id="svgcid-izkbmzqai7ey" d="M31 0h48c16.569 0 30 13.431 30 30 0 16.569-13.431 30-30 30H31C14.431 60 1 46.569 1 30 1 13.431 14.431 0 31 0z"></path>
+            <filter id="svgcid-apiadf-jv6774" filterUnits="objectBoundingBox" height="136.7%" width="120.4%" y="-9.2%" x="-15.3%">
+                <feOffset result="shadowOffsetOuter1" in="SourceAlpha" dy="10" dx="-10"></feOffset>
+                <feGaussianBlur result="shadowBlurOuter1" in="shadowOffsetOuter1" stdDeviation=".5"></feGaussianBlur>
+                <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.666666667 0 0 0 0 0.666666667 0 0 0 0 0.678431373 0 0 0 0.5 0"></feColorMatrix>
+            </filter>
+        </defs>
+        <g fill-rule="evenodd">
+            <g transform="translate(11)">
+                <use xlink:href="#svgcid-mw4gk4-5fchuo" filter="url(#svgcid-l5ciw4m0yuxe)" fill="#000000"></use>
+                <path stroke-linejoin="square" stroke-width="4" stroke="#E54343" fill="none" d="M216 30v0c0 15.464-12.536 28-28 28H30C14.536 58 2 45.464 2 30c0 0 0 0 0 0C2 14.536 14.536 2 30 2h158c15.464 0 28 12.536 28 28z"></path>
+            </g>
+            <g transform="translate(11)">
+                <use xlink:href="#svgcid-izkbmzqai7ey" filter="url(#svgcid-apiadf-jv6774)" fill="#000000"></use>
+                <use xlink:href="#svgcid-izkbmzqai7ey" fill="#E54343"></use>
+            </g>
+        </g>
+    </g>
+</svg>
