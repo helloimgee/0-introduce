@@ -14,7 +14,7 @@ export default function ProjectBox({ children }) {
 const StyledProjectBox = styled.li`
   position: relative;
   width: calc((100% / 2) - 15px);
-  height: 450px;
+  height: calc(100vh / 3);
   border-radius: 50px;
   background-color: #fff;
   img {

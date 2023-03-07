@@ -8,9 +8,9 @@ import styledCo from "../assets/images/styled.png";
 import notion from "../assets/images/notion.png";
 import api from "../assets/images/api.png";
 
-export default function Card({ data }) {
+export default function Card({ data, className }) {
   return (
-    <StyledCard>
+    <StyledCard className={className}>
       <div className="card center">
         <div className="card-wrap left">
           {data.map((skill) => {
@@ -28,12 +28,8 @@ export default function Card({ data }) {
 }
 
 const StyledCard = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
   backface-visibility: hidden;
   .card {
     height: 500px;
@@ -81,4 +77,5 @@ Card.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.objectOf(PropTypes.string.isRequired).isRequired
   ).isRequired,
+  className: PropTypes.string.isRequired,
 };

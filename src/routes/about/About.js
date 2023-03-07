@@ -3,9 +3,12 @@ import styled from "styled-components";
 // import Card from "../../components/Card";
 import PageHeader from "../../components/PageHeader";
 
-// import data1 from "../../assets/data/skillsData";
-// import data2 from "../../assets/data/skillsData2";
-// import data3 from "../../assets/data/skillsData3";
+import data1 from "../../assets/data/skillsData";
+import data2 from "../../assets/data/skillsData2";
+import data3 from "../../assets/data/skillsData3";
+import front from "../../assets/data/skillsData4";
+import react from "../../assets/data/skillsData5";
+import etc from "../../assets/data/skillsData6";
 import CardFlip from "../../components/CardFlip";
 
 export default function About() {
@@ -17,9 +20,9 @@ export default function About() {
         </PageHeader>
 
         <div className="about-flex">
-          <CardFlip />
-          {/* <CardFlip />
-          <CardFlip /> */}
+          <CardFlip data={data1} title={front} />
+          <CardFlip data={data2} title={react} />
+          <CardFlip data={data3} title={etc} />
           {/* <Card data={data2} />
           <Card data={data3} /> */}
         </div>

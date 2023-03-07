@@ -9,6 +9,7 @@ export default function Home() {
         <div className="home-txt">
           <p>
             <span className="archivo">Hello! </span>
+            <br className="break-m" />
             <span className="archivo">I{`'`}m gee</span>
             <br />
             <span className="moan">I{`'`}m frontend web developer</span>
@@ -45,7 +46,7 @@ const StyledHome = styled.div`
   height: 100vh;
   .home {
     &-txt {
-      position: absolute;
+      position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -56,6 +57,9 @@ const StyledHome = styled.div`
         }
         .moan {
           font-size: 3rem;
+        }
+        .break-m {
+          display: inline;
         }
       }
     }
@@ -88,6 +92,9 @@ const StyledHome = styled.div`
           .moan {
             color: #222;
             font-size: 5rem;
+          }
+          .break-m {
+            display: none;
           }
         }
       }
