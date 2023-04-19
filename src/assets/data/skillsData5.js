@@ -2,7 +2,7 @@ const skillsData4 = [
   {
     key: "1",
     icon: "none",
-    text: "React",
+    text: "Style",
   },
 ];
 

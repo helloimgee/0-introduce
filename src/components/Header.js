@@ -1,33 +1,44 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Header() {
+  const [load, setLoad] = useState(false);
+  const { pathname } = useLocation();
+  console.log(pathname);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoad(true);
+    }, 1000);
+    return () => setLoad(false);
+  }, [pathname]);
+
   return (
-    <StyledHeader>
+    <StyledHeader className={`header ${load ? "on" : ""}`}>
       <ul>
         <li className="home">
-          <Link to="/">
+          <Link to="/" className={pathname === "/" ? "on" : ""}>
             <i className="fas fa-home" />
             <span>Home</span>
           </Link>
         </li>
         <li className="about">
-          <Link to="/about">
+          <Link to="/about" className={pathname === "/about" ? "on" : ""}>
             <i className="fas fa-user" />
             <span>About</span>
           </Link>
         </li>
         <li className="projects">
-          <Link to="/projects">
+          <Link to="/projects" className={pathname === "/projects" ? "on" : ""}>
             <i className="fas fa-tasks" />
             <span>Portfolio</span>
           </Link>
         </li>
-        <li className="github">
-          <Link to="/github">
-            <i className="fab fa-github" />
-            <span>Github</span>
+        <li className="mail">
+          <Link to="/mail" className={pathname === "/mail" ? "on" : ""}>
+            <i className="fa-regular fa-envelope" />
+            <span>CONTACT</span>
           </Link>
         </li>
       </ul>
@@ -37,10 +48,16 @@ export default function Header() {
 
 const StyledHeader = styled.header`
   position: fixed;
-  left: 20px;
+  left: 43px;
   top: 50%;
-  transform: translateY(-50%);
   z-index: 100;
+  transform: translateY(-40%);
+  opacity: 0;
+  transition: all 1s;
+  &.on {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
 
   ul {
     display: flex;
@@ -54,6 +71,9 @@ const StyledHeader = styled.header`
         transition: all 0.2s;
         background-color: var(--gray-color); // transition
         vertical-align: middle;
+        &.on {
+          background-color: var(--main-color);
+        }
         span {
           position: absolute; // transition
           opacity: 0; // transition

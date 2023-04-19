@@ -1,32 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import PageHeader from "../../components/PageHeader";
-import ProjectBox from "../../components/ProjectBox";
+
+import Slide from "./Slide";
 import Menu from "./Menu";
-import mac from "../../assets/images/mac.png";
+import PageHeader from "../../components/PageHeader";
+
+import data1 from "../../assets/data/projectListAll";
+import data2 from "../../assets/data/projectListPerson";
+import data3 from "../../assets/data/projectListTeam";
+import Preloader from "../../components/Preloader";
 
 export default function Project() {
+  const [projectIndex, setProjectIndex] = useState(0);
+
+  const allProps = () => {
+    setProjectIndex(0);
+  };
+  const personProps = () => {
+    setProjectIndex(1);
+  };
+  const teamProps = () => {
+    setProjectIndex(2);
+  };
   return (
     <StyledProject>
+      <Preloader />
+      <PageHeader headerBg="WORKS" className="pageHeader">
+        MY <span className="point">PROJECTS</span>
+      </PageHeader>
       <div className="project">
-        <PageHeader headerBg="WORKS">
-          MY <span className="point">PROJECTS</span>
-        </PageHeader>
         <div className="project-content">
-          <Menu />
-          <ul className="project-content-wrap">
-            <ProjectBox>
-              <img src={mac} alt="" />
-            </ProjectBox>
-            <ProjectBox>
-              <img src={mac} alt="" />
-            </ProjectBox>
-          </ul>
-          <div className="project-content-foot">
-            <div className="project-content-foot-circle on" />
-            <div className="project-content-foot-circle" />
-            <div className="project-content-foot-circle" />
-          </div>
+          <Menu
+            allProps={allProps}
+            personProps={personProps}
+            teamProps={teamProps}
+          />
+          {projectIndex === 0 && <Slide data={data1} dataLength="4" />}
+          {projectIndex === 1 && <Slide data={data2} dataLength="2" />}
+          {projectIndex === 2 && <Slide data={data3} dataLength="2" />}
         </div>
       </div>
     </StyledProject>
@@ -35,34 +46,30 @@ export default function Project() {
 
 const StyledProject = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #000;
+
   .project {
-    max-width: 1140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     margin: 0 auto;
 
     &-content {
-      &-wrap {
-        display: flex;
-        gap: 30px;
-        margin-top: 10px;
-      }
+      width: 100%;
+      position: relative;
+    }
+  }
 
-      &-foot {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 50px;
-        &-circle {
-          width: 20px;
-          height: 20px;
-          border-radius: 50%;
-          background-color: #222;
-          &.on {
-            background-color: var(--main-color);
-          }
-        }
-      }
+  @media screen and (max-width: 1424px) {
+    .pageHeader {
+      top: 80px;
+    }
+    .project {
+      padding-top: 250px;
+      padding-bottom: 80px;
+      align-items: flex-start;
     }
   }
 `;

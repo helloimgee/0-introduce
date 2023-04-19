@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   button {
     border: 0;
     background-color: transparent;
-    cursor: pointer
+    cursor: pointer;
   }
   input, textarea, select {
     border: none;
@@ -53,6 +53,9 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+  }
+  .bold {
+    font-weight: 700;
   }
 
   // font
@@ -84,6 +87,18 @@ const GlobalStyle = createGlobalStyle`
 
   .moan {
     font-family: "Moan Hand", serif;
+  }
+  .abril {
+    font-family: 'Abril Fatface', cursive;
+  }
+  .blackHan {
+    font-family: 'Black Han Sans', sans-serif;
+  }
+  .noto {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .nanumPen {
+    font-family: 'Nanum Pen Script', cursive;
   }
 `;
 

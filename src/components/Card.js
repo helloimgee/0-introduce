@@ -32,13 +32,14 @@ const StyledCard = styled.div`
   height: 100%;
   backface-visibility: hidden;
   .card {
+    width: 100%;
     height: 500px;
-    border: 1px solid #252525;
-    border-radius: 50px;
     &-wrap {
       gap: 5px;
-      padding: 0 50px;
+      padding: 0 110px;
       &-article {
+        display: flex;
+        justify-content: center;
         i {
           display: inline-block;
           width: 50px;

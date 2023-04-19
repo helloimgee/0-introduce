@@ -2,19 +2,18 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-export default function PageHeader({ children, headerBg }) {
+export default function PageHeader({ children, headerBg, className }) {
   const [load, setLoad] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setLoad(true);
-    }, 450);
+    }, 600);
     return () => setLoad(false);
   }, []);
 
-  console.log(typeof children[1]);
   return (
-    <StyledPageHeader>
+    <StyledPageHeader className={className}>
       <div className="header">
         <h1 className="header-tit">{children}</h1>
         <span className={`header-bg ${load ? "on" : ""}`}>{headerBg}</span>
@@ -24,9 +23,15 @@ export default function PageHeader({ children, headerBg }) {
 }
 
 const StyledPageHeader = styled.div`
+  position: absolute;
+  top: 180px;
+  width: 100%;
+  /* padding: 100px 0 70px; */
   .header {
     position: relative;
-    padding: 160px 0px;
+    height: 11.2rem;
+    /* line-height: 1; */
+
     &-tit {
       position: absolute;
       top: 50%;
@@ -41,6 +46,9 @@ const StyledPageHeader = styled.div`
       text-align: center;
       letter-spacing: -3px;
       z-index: 100;
+      > span {
+        color: var(--main-color);
+      }
     }
     &-bg {
       position: absolute;
@@ -55,6 +63,7 @@ const StyledPageHeader = styled.div`
       text-align: center;
       letter-spacing: 60px;
       transition: letter-spacing 1.1s;
+      line-height: 1;
       &.on {
         letter-spacing: 0;
       }
@@ -67,4 +76,9 @@ PageHeader.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
   ).isRequired,
   headerBg: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+PageHeader.defaultProps = {
+  className: "",
 };
