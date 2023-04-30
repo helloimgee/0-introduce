@@ -211,7 +211,7 @@ const StyledHome = styled.div`
         position: relative;
         display: flex;
         width: 600px;
-        height: 5rem;
+        height: 5.6rem;
         overflow: hidden;
         .message {
           position: absolute;

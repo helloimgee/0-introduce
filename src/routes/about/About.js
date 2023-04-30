@@ -58,12 +58,22 @@ export default function About() {
             </div>
           </div>
           <div className="about-introduce">
-            {isHover ? (
+            {!isHover ? (
+              <p className="about-introduce-txt-before">
+                반갑습니다. 최지이입니다. <br /> 마우스를 위로 가져가서 저를
+                불러주세요.
+                <br />
+                <div className="about-introduce-txt-before-bot">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/ico-arrow.png`}
+                    alt="화살표"
+                  />
+                  <span className="moan">hover me!</span>
+                </div>
+              </p>
+            ) : (
               <p className="about-introduce-txt after">
-                <b className="bold point pc">
-                  배려하고, 성장하고, 소통하고, 생각하는 개발자
-                </b>
-                <b className="bold point mobile">
+                <b className="bold point">
                   배려하고, 성장하고, 소통하고, 생각하는 개발자
                 </b>
                 <br />
@@ -72,16 +82,6 @@ export default function About() {
                 창의적이며 도전적인 환경에서 다양한 문제를 해결하고 사람들에게
                 긍정적인 영향력을 끼치는 일을 하고 싶기 때문입니다. 제 가치를
                 알아주는 회사에서 좋은 사람들과 함께 일하고 싶습니다.
-              </p>
-            ) : (
-              <p className="about-introduce-txt before">
-                반갑습니다. 최지이입니다. 저를 클릭해주세요.
-                <br />
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/ico-arrow.png`}
-                  alt="화살표"
-                />
-                <p className="moan">click me!</p>
               </p>
             )}
           </div>
@@ -115,8 +115,8 @@ const StyledAbout = styled.div`
     &-profileFlex {
       display: flex;
       align-items: center;
-      gap: 50px;
-      margin-top: 100px;
+      gap: 30px;
+      margin-top: 70px;
     }
 
     &-profile {
@@ -158,29 +158,29 @@ const StyledAbout = styled.div`
       color: #fff;
       transition: all 1s;
       &-txt {
-        font-size: 1.7rem;
-        color: #fff;
-        &.after {
-          width: 450px;
-          > b.pc {
-            display: block;
-          }
-          > b.mobile {
-            display: none;
-          }
-        }
-        &.before {
+        &-before {
           position: relative;
           width: 360px;
-          > img {
-            position: absolute;
-            width: 50px;
-            transform: rotate(60deg);
+          font-size: 1.7rem;
+          color: #fff;
+          text-align: center;
+          &-bot {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            img {
+              width: 50px;
+              transform: rotate(60deg);
+            }
           }
+        }
+        &-after {
+          width: 450px;
+          font-size: 1.7rem;
+          color: #fff;
         }
       }
       .moan {
-        position: absolute;
         left: 65px;
         font-size: 3.5rem;
         color: var(--main-color);
@@ -234,12 +234,6 @@ const StyledAbout = styled.div`
             width: 350px;
             word-wrap: break-word;
             word-break: keep-all;
-            > b.pc {
-              display: none;
-            }
-            > b.mobile {
-              display: block;
-            }
           }
         }
       }

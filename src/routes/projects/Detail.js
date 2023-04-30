@@ -64,8 +64,8 @@ export default function Detail() {
             return (
               <div className="detail-info-desc">
                 <p>{desc.introduce}</p>
-                <p>{desc.role}</p>
                 <p>{desc.background}</p>
+                <p>{desc.role}</p>
                 <p>{desc.thought}</p>
               </div>
             );
@@ -79,10 +79,7 @@ export default function Detail() {
           {portfolio[0].image.map((image) => {
             return (
               <div key={image.tit}>
-                <img
-                  src={`http://13.209.17.86:3000/${image.name}`}
-                  alt="이미지"
-                />
+                <img src={`${image.url}/${image.name}`} alt="이미지" />
                 <div className="detail-process-tit">
                   <p>{image.tit}</p>
                   <p>{image.desc}</p>

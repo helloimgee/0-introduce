@@ -11,28 +11,7 @@ export default function Slide({ data, dataLength }) {
   const [slideIndex, setSlideIndex] = useState(0);
   const slidesLength = parseInt(dataLength, 10);
 
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     setSlideIndex((prev) => prev - 1);
-  //   }, 3000);
-  //   return () => clearInterval();
-  // }, []);
-  const firstSlide = () => {
-    setSlideIndex(0);
-  };
-  const secondSlide = () => {
-    if (slidesLength <= 2) {
-      return;
-    }
-    setSlideIndex(-1);
-  };
-  const thirdSlide = () => {
-    if (slidesLength <= 3) {
-      return;
-    }
-    setSlideIndex(-2);
-  };
-
+  // 좌우 버튼
   const toPrev = () => {
     if (slideIndex > 0) {
       setSlideIndex((prev) => prev - 1);
@@ -42,6 +21,23 @@ export default function Slide({ data, dataLength }) {
     if (slideIndex < slidesLength - 2) {
       setSlideIndex((prev) => prev + 1);
     }
+  };
+
+  // 하단 원형 버튼
+  const firstSlide = () => {
+    setSlideIndex(0);
+  };
+  const secondSlide = () => {
+    if (slidesLength <= 2) {
+      return;
+    }
+    setSlideIndex(1);
+  };
+  const thirdSlide = () => {
+    if (slidesLength <= 3) {
+      return;
+    }
+    setSlideIndex(2);
   };
   return (
     <StyledSlide className="slide">
@@ -88,36 +84,33 @@ export default function Slide({ data, dataLength }) {
           ▶
         </button>
       </div>
-      {data.length > 2 ? (
-        <div className="slide-foot">
-          <div
-            className={`slide-foot-circle ${slideIndex === 0 ? "on" : ""}`}
-            role="button"
-            onClick={firstSlide}
-            onKeyDown={firstSlide}
-            tabIndex="0"
-            aria-label="firstSlide"
-          />
-          <div
-            className={`slide-foot-circle ${slideIndex === 1 ? "on" : ""}`}
-            role="button"
-            onClick={secondSlide}
-            onKeyDown={secondSlide}
-            tabIndex="0"
-            aria-label="secondSlide"
-          />
-          <div
-            className={`slide-foot-circle ${slideIndex === 2 ? "on" : ""}`}
-            role="button"
-            onClick={thirdSlide}
-            onKeyDown={thirdSlide}
-            tabIndex="0"
-            aria-label="thirdSlide"
-          />
-        </div>
-      ) : (
-        ""
-      )}
+
+      <div className={`slide-foot ${data.length > 2 ? "on" : ""}`}>
+        <div
+          className={`slide-foot-circle ${slideIndex === 0 ? "on" : ""}`}
+          role="button"
+          onClick={firstSlide}
+          onKeyDown={firstSlide}
+          tabIndex="0"
+          aria-label="firstSlide"
+        />
+        <div
+          className={`slide-foot-circle ${slideIndex === 1 ? "on" : ""}`}
+          role="button"
+          onClick={secondSlide}
+          onKeyDown={secondSlide}
+          tabIndex="0"
+          aria-label="secondSlide"
+        />
+        <div
+          className={`slide-foot-circle ${slideIndex === 2 ? "on" : ""}`}
+          role="button"
+          onClick={thirdSlide}
+          onKeyDown={thirdSlide}
+          tabIndex="0"
+          aria-label="thirdSlide"
+        />
+      </div>
     </StyledSlide>
   );
 }
@@ -206,7 +199,7 @@ const StyledSlide = styled.div`
     width: 100%;
     height: 1.2rem;
     > button {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       color: var(--main-color);
     }
     > button:nth-of-type(1) {
@@ -224,6 +217,7 @@ const StyledSlide = styled.div`
     justify-content: center;
     gap: 10px;
     margin-top: 50px;
+    visibility: hidden;
     &-circle {
       width: 13px;
       height: 13px;
@@ -233,6 +227,10 @@ const StyledSlide = styled.div`
       &.on {
         background-color: var(--main-color);
       }
+    }
+
+    &.on {
+      visibility: visible;
     }
   }
 

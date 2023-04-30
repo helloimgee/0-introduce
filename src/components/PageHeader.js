@@ -24,7 +24,7 @@ export default function PageHeader({ children, headerBg, className }) {
 
 const StyledPageHeader = styled.div`
   position: absolute;
-  top: 180px;
+  top: 10%;
   width: 100%;
   /* padding: 100px 0 70px; */
   .header {
